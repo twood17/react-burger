@@ -3,7 +3,7 @@ import Person from './components/Person/Person';
 import './App.css';
 
 class App extends Component {
-	//testing 2
+	//testing 23
 	state = {
 		persons: [ 
 			{ id: 'd14312', name: 'Ty', age: 31 }, 
