@@ -1,6 +1,7 @@
 {
   "name": "react-burger",
   "version": "0.1.0",
+  "homepage": "https://twood17.github.io/react-burger/",
   "private": true,
   "dependencies": {
     "react": "^16.11.0",
