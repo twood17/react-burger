@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Person from './components/Person/Person';
 import classes from './App.css';
 
-
-
 class App extends Component {
 	//testing 2345
 	state = {
@@ -47,7 +45,7 @@ class App extends Component {
 
 	render() {
 		let persons = null;
-		let btnClass = [classes.Button];
+		let btnClass = [ classes.Button ];
 
 		if (this.state.showPersons) {
 			persons = (
