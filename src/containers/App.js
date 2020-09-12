@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Person from './components/Person/Person';
 import classes from './App.css';
-import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+import Persons from '../components/Persons/Persons';
+// import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
 	//testing 2345
@@ -51,18 +51,11 @@ class App extends Component {
 		if (this.state.showPersons) {
 			persons = (
 				<div>
-					{this.state.persons.map((person, index) => {
-						return (
-							<ErrorBoundary key={person.id}>
-								<Person
-									click={() => this.deletePersonHandler(index)}
-									name={person.name}
-									age={person.age}									
-									changed={(event) => this.nameChangedHandler(event, person.id)}
-								/>
-							</ErrorBoundary>
-						);
-					})}
+					<Persons
+						persons={this.state.persons}
+						clicked={this.deletePersonHandler}
+						changed={this.nameChangedHandler}
+					/>
 				</div>
 			);
 
@@ -77,16 +70,7 @@ class App extends Component {
 			assignedClasses.push(classes.bold);
 		}
 
-		return (
-			<div className={classes.App}>
-				<h1>Hi, I'm a React App!</h1>
-				<p className={assignedClasses.join(' ')}>This is really working!</p>
-				<button className={btnClass.join(' ')} onClick={this.togglePersonsHandler}>
-					Toggle Person
-				</button>
-				{persons}
-			</div>
-		);
+		return <div className={classes.App}>{persons}</div>;
 	}
 }
 
