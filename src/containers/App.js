@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 // import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
@@ -46,31 +47,27 @@ class App extends Component {
 
 	render() {
 		let persons = null;
-		let btnClass = [ classes.Button ];
+		// let btnClass = [ classes.Button ];
 
 		if (this.state.showPersons) {
-			persons = (
-				<div>
+			persons = (				
 					<Persons
 						persons={this.state.persons}
 						clicked={this.deletePersonHandler}
 						changed={this.nameChangedHandler}
-					/>
-				</div>
+					/>				
 			);
-
-			btnClass.push(classes.Red);
 		}
 
-		let assignedClasses = [];
-		if (this.state.persons.length <= 2) {
-			assignedClasses.push(classes.red);
-		}
-		if (this.state.persons.length <= 1) {
-			assignedClasses.push(classes.bold);
-		}
-
-		return <div className={classes.App}>{persons}</div>;
+		return (
+			<div className={classes.App}>
+				<Cockpit 
+					showPersons={this.state.showPersons} 
+					persons={this.state.persons}
+					clicked={this.togglePersonsHandler} />
+				{persons}
+			</div>
+		);
 	}
 }
 
