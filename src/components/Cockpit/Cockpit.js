@@ -6,13 +6,14 @@ const Cockpit = (props) => {
 	useEffect(() => {
 		console.log('[Cockpit.js] useEffect')
 		//http request...
-		setTimeout(() => {
+		const timer = setTimeout(() => {
 			alert('saved data to cloud!')
 		}, 1000);
 		return () => {
+			clearTimeout(timer)
 			console.log('[Cockpit.js] cleanup work in useEffect')
 		}
-	}, [props.persons])
+	}, [] /* [props.passIn] will work on only the first load */)
 
 	useEffect(() => {
 		console.log('[Cockpit.js] 2nd useEffect')
