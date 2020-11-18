@@ -12,7 +12,7 @@ const Cockpit = (props) => {
 		return () => {
 			console.log('[Cockpit.js] cleanup work in useEffect')
 		}
-	}, [])
+	}, [props.persons])
 
 	useEffect(() => {
 		console.log('[Cockpit.js] 2nd useEffect')
